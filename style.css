@@ -15,7 +15,7 @@ html {
 body {
     /* background-color: #D0D3D4; */
     background-color: #E5E8E8;
-    transition: all 0.4s;
+    transition: all 0.2s;
 }
 
 .navbar {
@@ -27,7 +27,7 @@ body {
     /* color: #282936; */
     /* font-size: 2rem; */
     font-family: 'Poppins', sans-serif;
-    transition: all 0.4s;
+    transition: all 0.2s;
 }
 .wrap_icon{
     display: flex;
@@ -62,7 +62,7 @@ body {
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     font-size: 1.5rem;
-    transition: all 0.4s;
+    transition: all 0.2s;
 }
 .button:focus{
     outline: none; 
@@ -91,7 +91,7 @@ body {
     top: 9.35rem;
     opacity: 0;
     padding-left: 0.1rem;
-    transition: all 0.5s;
+    transition: all 0.2s;
 
 }
 
@@ -150,7 +150,7 @@ select:focus{
     height: 18rem;
     min-width: 32.6rem;
     background-color: var(--bgNote);
-
+    margin:1.5rem;
     border-radius: 0.5rem;
     overflow: hidden;
 }
