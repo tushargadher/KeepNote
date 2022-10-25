@@ -1,5 +1,7 @@
 
 
+
+
 let addnoteBtn = document.querySelector('.button');
 //adding notes dynamically on buttoin click
 const updateLSData = () => {
@@ -15,7 +17,7 @@ const addNotes = (text = '') => {
 
     const wrap_note = document.querySelector('.wrap_note');
     const test = document.createElement('div');
-    test.classList.add('.test');
+    test.classList.add('test');
     const htmlData = `
                 <div class="note">
                     <div class="operation">
@@ -56,8 +58,12 @@ const addNotes = (text = '') => {
     });
     //delete note when user click delete btn
     deleBtn.addEventListener('click', () => {
-        test.remove();
-        updateLSData();//this call is required because when user click on delete button then notes also deleted from localstorage
+        text = confirm("Delete Note ?");
+        if (text == true) {
+            test.remove();
+            updateLSData();//this call is required because when user click on delete button then notes also deleted from localstorage
+        }
+
     });
     textarea.addEventListener('change', updateLSData);
 
@@ -77,6 +83,7 @@ addnoteBtn.addEventListener('click', () => addNotes());
 
 //theme toggle logic start here...
 let choice = document.querySelector('.choice');
+const theme = localStorage.getItem('theme');
 const themeToggle = () => {
     if (choice.value == 'light') {
         document.body.style.background = '#E5E8E8';
@@ -84,6 +91,28 @@ const themeToggle = () => {
         choice.style.background = '#E5E8E8';
         document.querySelector('.navbar').style.background = '#F4D03F';
         document.querySelector('.button').style.background = '#F4D03F';
+        localStorage.setItem('theme', 'light');
+    }
+    else {
+        document.body.style.background = '#404040';
+        choice.style.color = 'white';
+        choice.style.background = '#404040';
+
+        document.querySelector('.navbar').style.background = '#DC7633';
+        document.querySelector('.button').style.background = '#DC7633';
+        localStorage.setItem('theme', 'dark');
+    }
+}
+
+//remain same theme after the refresh the webpage
+window.addEventListener('load', () => {
+    if (theme == 'light') {
+        document.body.style.background = '#E5E8E8';
+        choice.style.color = 'black';
+        choice.style.background = '#E5E8E8';
+        document.querySelector('.navbar').style.background = '#F4D03F';
+        document.querySelector('.button').style.background = '#F4D03F';
+        document.querySelector('#light').setAttribute('selected', 'selected')
     }
     else {
         document.body.style.background = '#404040';
@@ -91,18 +120,12 @@ const themeToggle = () => {
         choice.style.background = '#404040';
         document.querySelector('.navbar').style.background = '#DC7633';
         document.querySelector('.button').style.background = '#DC7633';
+        document.querySelector('#dark').setAttribute('selected', 'selected');
+
     }
-}
+})
 
 
-
-choice.addEventListener('click', themeToggle);
-
-
-// bug to solve
-// 1.dark theme remain same after refresh
-// 2.space between two note verticaly and horizontaly
+hoice.addEventListener('click', themeToggle);
 
 
-//add more feature
-//1.user guide
