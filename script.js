@@ -126,6 +126,6 @@ window.addEventListener('load', () => {
 })
 
 
-hoice.addEventListener('click', themeToggle);
+choice.addEventListener('click', themeToggle);
 
 
